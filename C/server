@@ -1,0 +1,38 @@
+#!/bin/bash
+### BEGIN INIT INFO
+# Provides:          server
+# Required-Start:    $gcc
+# Required-Stop:     $gcc
+# Default-Start:     2 3 4 5
+# Default-Stop:      0 1 6
+# X-Interactive:     false
+# Short-Description: 
+# Description:       Start/stop script
+### END INIT INFO
+
+DESC="test script"
+NAME=server
+#DAEMON=
+
+do_start()
+{
+   gcc server.c -o server
+   ./server
+}
+
+do_stop()
+{
+   exit 0
+}
+
+
+case "$1" in
+   start)
+     do_start
+     ;;
+   stop)
+     do_stop
+     ;;
+esac
+
+exit 0
