@@ -12,7 +12,6 @@ class forwarder(asyncore.dispatcher):
 
     def handle_accept(self):
         conn, addr = self.accept()
-        # print '--- Connect --- '
         sender(receiver(conn),self.remoteip,self.remoteport)
 
 class receiver(asyncore.dispatcher):
